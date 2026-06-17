@@ -24,9 +24,6 @@ export function BottleShowcase({
       {/* Floating shimmer accent */}
       <div
         className={`absolute inset-0 opacity-0 hover:opacity-10 transition-opacity duration-500`}
-        style={{
-          background: `radial-gradient(circle at 30% 40%, ${color}40 0%, transparent 70%)`,
-        }}
       />
 
       {/* Bottle representation */}

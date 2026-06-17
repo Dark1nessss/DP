@@ -4,12 +4,44 @@ import { collections } from '@/lib/data'
 const nav = [
   { href: '/collections', label: 'Coleções' },
   { href: '/about', label: 'Sobre a Marca' },
+  { href: '/stories', label: 'Histórias' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/sustainability', label: 'Sustentabilidade' },
+  { href: '/team', label: 'Equipa' },
   { href: '/contact', label: 'Contacto' },
 ]
 
 export default function Footer() {
   return (
     <footer className="border-t border-rim/30 bg-card">
+      {/* Newsletter Section */}
+      <div className="bg-gradient-to-b from-card/50 to-card border-b border-rim/30">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="max-w-2xl">
+            <h3 className="font-display text-2xl font-light text-cream mb-2">
+              Acompanhe Novas Histórias
+            </h3>
+            <p className="font-body text-xs text-stone/70 mb-6">
+              Inscreva-se para receber atualizações sobre coleções, histórias de design, e novidades de Atlas Ousia.
+            </p>
+            <form className="flex items-center gap-3">
+              <input
+                type="email"
+                placeholder="O seu email"
+                className="flex-1 bg-card/60 border border-rim/30 rounded px-3 py-2.5 font-body text-xs text-cream placeholder-stone/60 focus:outline-none focus:border-gold/60 transition-colors"
+                required
+              />
+              <button
+                type="submit"
+                className="font-body text-xs tracking-[0.25em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300 shrink-0"
+              >
+                Subscrever
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>

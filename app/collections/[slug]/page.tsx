@@ -170,7 +170,7 @@ export default async function CollectionPage({
                     >
                       ✦
                     </span>
-                    <span className="font-body text-sm text-stone">{item}</span>
+                    <span className="font-body text-sm text-stone mt-1.5">{item}</span>
                   </li>
                 ))}
               </ul>
