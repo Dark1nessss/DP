@@ -15,9 +15,9 @@ export const collections: Collection[] = [
     season: 'Inverno',
     country: 'Portugal',
     subtitle: 'A Essência do Lar',
-    color: '#0b2e22',
+    color: '#2f7f5b',
     description:
-      'A escolha de Portugal para representar o inverno parte de uma perspetiva de identidade nacional e memórias afetivas. Embora o inverno português seja caracterizado pela chuva e pelo frio, ele evoca um forte sentimento de acolhimento e conforto de casa. O Verde Floresta Profunda traduz graficamente a densidade das paisagens de pinhais e a sobriedade elegante desta época sazonal.',
+      'A escolha de Portugal para representar o inverno parte de uma perspetiva de identidade nacional e memórias afetivas. Embora o inverno português seja caracterizado pela chuva e pelo frio, ele evoca um forte sentimento de acolhimento e conforto de casa. O Verde Floresta Radiante traduz graficamente a densidade das paisagens de pinhais e a sobriedade elegante desta época sazonal.',
     notes: ['Lenha', 'Pinheiro', 'Terra Húmida', 'Musgo'],
     packaging:
       'O design visual do mosaico incorpora referências à arquitetura tradicional e à azulejaria portuguesa. A fragrância é desenvolvida com notas que remetem à lenha e ao ambiente acolhedor do lar, transformando a nostalgia em Branding Sensorial.',

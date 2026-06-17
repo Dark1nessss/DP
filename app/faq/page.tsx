@@ -1,4 +1,10 @@
 import type { Metadata } from 'next'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 
 export const metadata: Metadata = {
   title: 'Perguntas Frequentes',
@@ -109,17 +115,21 @@ export default function FAQPage() {
   return (
     <div className="pt-16 pb-24">
       {/* Hero */}
-      <section className="py-36 px-6 border-b border-rim/30">
-        <div className="max-w-6xl mx-auto animate-slide-up">
+      <section className="py-36 px-6 border-b border-rim/30 relative overflow-hidden bg-gradient-to-br from-card/40 to-ink">
+        {/* Decorative background elements */}
+        <div className="absolute top-10 right-10 w-40 h-40 rounded-full blur-3xl opacity-10" style={{ background: '#c9a86c' }} />
+        <div className="absolute bottom-0 left-1/4 w-60 h-60 rounded-full blur-3xl opacity-5" style={{ background: '#e8e0d4' }} />
+        
+        <div className="max-w-7xl mx-auto animate-slide-up relative z-10">
           <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Dúvidas Comuns
           </p>
-          <h1 className="font-display text-7xl md:text-8xl font-light text-cream mb-6">
+          <h1 className="font-display text-7xl md:text-8xl font-light text-cream mb-6 text-balance">
             Perguntas Frequentes
           </h1>
-          <p className="font-body text-sm text-stone leading-relaxed max-w-2xl">
+          <p className="font-body text-sm text-stone leading-relaxed max-w-3xl">
             Temos aqui as respostas às perguntas mais comuns sobre Atlas Ousia. Se tem outras dúvidas, não hesite em{' '}
-            <a href="/contact" className="text-gold hover:underline transition-all duration-200">
+            <a href="/contact" className="text-gold hover:underline transition-all duration-200 font-medium">
               contactar-nos
             </a>
             .
@@ -128,36 +138,33 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto space-y-20">
+      <section className="py-24 px-6 bg-gradient-to-b from-ink to-card/20">
+        <div className="max-w-7xl mx-auto space-y-24">
           {faqs.map((section, idx) => (
             <div key={section.category} className="animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
               {/* Category heading */}
-              <div className="mb-12 pb-6 border-b border-rim/30">
-                <h2 className="font-display text-4xl font-light text-cream">{section.category}</h2>
+              <div className="mb-12 pb-6 border-b-2 border-gold/20 relative">
+                <div className="h-1 w-8 bg-gold mb-4" />
+                <h2 className="font-display text-5xl md:text-6xl font-light text-cream">{section.category}</h2>
               </div>
 
               {/* Questions */}
-              <div className="space-y-8">
+              <Accordion type="single" collapsible className="space-y-3">
                 {section.questions.map((item, qIdx) => (
-                  <details
+                  <AccordionItem
                     key={item.q}
-                    className="group border border-rim/30 rounded p-6 hover:border-rim/60 hover:bg-card/20 transition-all duration-300 cursor-pointer"
+                    value={`${section.category}-${qIdx}`}
+                    className="border border-rim/30 rounded-lg px-6 hover:border-rim/60 hover:bg-card/40 transition-all duration-300 data-[state=open]:bg-card/30 data-[state=open]:border-gold/40"
                   >
-                    <summary className="flex items-start justify-between gap-4 select-none">
-                      <h3 className="font-body text-sm font-medium text-cream group-hover:text-gold transition-colors duration-200">
-                        {item.q}
-                      </h3>
-                      <span className="text-gold shrink-0 mt-1 group-open:rotate-180 transition-transform duration-300">
-                        ✦
-                      </span>
-                    </summary>
-                    <p className="font-body text-sm text-stone leading-relaxed mt-6 pt-6 border-t border-rim/20">
+                    <AccordionTrigger className="font-body text-sm font-medium text-cream hover:text-gold transition-colors duration-200 py-4">
+                      {item.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="font-body text-sm text-stone leading-relaxed pb-4 pt-2 border-t border-rim/20">
                       {item.a}
-                    </p>
-                  </details>
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           ))}
         </div>

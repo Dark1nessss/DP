@@ -53,51 +53,100 @@ export default function HomePage() {
       </section>
 
       {/* ── Collections ── */}
-      <section className="py-28 px-6 border-t border-rim/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-5">
-              A Coleção
-            </p>
-            <h2 className="font-display text-5xl md:text-6xl font-light text-cream leading-tight">
-              Uma Viagem Olfativa
-              <br />
-              Pelo Mundo
-            </h2>
+      <section className="py-24 px-6 border-t border-rim/30 relative">
+        <div className="max-w-7xl mx-auto">
+          {/* Section header with accent bar */}
+          <div className="mb-20 flex items-end gap-6">
+            <div className="flex-1">
+              <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-6 block">
+                A Coleção
+              </p>
+              <h2 className="font-display text-6xl md:text-7xl font-light text-cream leading-tight">
+                Uma Viagem
+                <br />
+                <span className="relative inline-block">
+                  Olfativa
+                  <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-gold to-transparent" />
+                </span>
+              </h2>
+            </div>
+            <div className="hidden md:block w-20 h-20 border-2 border-gold/20 rotate-45 flex items-center justify-center">
+              <span className="font-display text-gold/30 text-lg -rotate-45">✦</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rim/30">
-            {collections.map((col) => (
+          {/* Collections Grid - Masonry-like layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {collections.map((col, idx) => (
               <Link
                 key={col.slug}
                 href={`/collections/${col.slug}`}
-                className="group bg-ink hover:bg-card px-10 py-10 transition-colors duration-300 flex flex-col"
+                className={`group relative overflow-hidden rounded-lg transition-all duration-500 hover:shadow-2xl animate-slide-up ${
+                  idx === 0 ? 'md:col-span-2 md:row-span-2' : 'md:row-span-1'
+                }`}
+                style={{
+                  background: `linear-gradient(135deg, ${col.color}25 0%, ${col.color}08 100%)`,
+                  border: `1px solid ${col.color}20`,
+                  animationDelay: `${idx * 100}ms`,
+                }}
               >
-                <div className="h-0.5 mb-8" style={{ backgroundColor: col.color }} />
+                {/* Animated background accent */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(circle at 100% 0%, ${col.color}30 0%, transparent 70%)`,
+                  }}
+                />
 
-                <div className="flex justify-between items-start mb-5">
+                {/* Content */}
+                <div
+                  className={`relative z-10 p-8 flex flex-col h-full ${idx === 0 ? 'justify-between' : ''}`}
+                >
+                  {/* Top accent */}
                   <div>
-                    <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-2">
-                      {col.season}
-                    </p>
-                    <h3 className="font-display text-3xl font-light text-cream">{col.country}</h3>
+                    <div
+                      className="h-1 mb-6 w-12 group-hover:w-16 transition-all duration-300"
+                      style={{ backgroundColor: col.color }}
+                    />
+
+                    <div className="mb-8">
+                      <p
+                        className="font-body text-xs tracking-[0.3em] uppercase mb-2 group-hover:text-gold transition-colors"
+                        style={{ color: col.color }}
+                      >
+                        {col.season}
+                      </p>
+                      <h3 className="font-display text-4xl md:text-5xl font-light text-cream group-hover:text-gold transition-colors duration-300">
+                        {col.country}
+                      </h3>
+                    </div>
+
+                    <p className="font-display text-lg italic text-stone/70 mb-6">{col.subtitle}</p>
                   </div>
-                  <span className="text-stone group-hover:text-gold transition-colors duration-200 text-lg mt-1">
-                    →
-                  </span>
-                </div>
 
-                <p className="font-display text-base italic text-stone mb-8">{col.subtitle}</p>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {col.notes.map((note) => (
+                  {/* Bottom section */}
+                  <div className="flex items-end justify-between">
+                    <div className="flex flex-wrap gap-2">
+                      {col.notes.slice(0, 2).map((note) => (
+                        <span
+                          key={note}
+                          className="font-body text-xs px-3 py-1.5 rounded transition-all duration-300 group-hover:bg-gold/20"
+                          style={{
+                            color: col.color,
+                            border: `1px solid ${col.color}40`,
+                          }}
+                        >
+                          {note}
+                        </span>
+                      ))}
+                    </div>
                     <span
-                      key={note}
-                      className="font-body text-xs text-stone/50 border border-rim/60 px-3 py-1"
+                      className="text-lg font-light group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"
+                      style={{ color: col.color }}
                     >
-                      {note}
+                      →
                     </span>
-                  ))}
+                  </div>
                 </div>
               </Link>
             ))}
@@ -106,21 +155,28 @@ export default function HomePage() {
       </section>
 
       {/* ── Manifesto ── */}
-      <section className="py-28 px-6 border-t border-rim/30 bg-card">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="text-gold font-display text-xl block mb-8 opacity-50 select-none">
+      <section className="py-24 px-6 border-t border-rim/30 bg-gradient-to-br from-card/50 to-card/20 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gold blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gold blur-3xl" />
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <span className="text-gold font-display text-3xl block mb-8 opacity-60 select-none animate-glow-pulse">
             ✦
           </span>
-          <blockquote className="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-8 text-balance">
+          <blockquote className="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-10 text-balance">
             &quot;Cada frasco é pensado para ser uma peça de coleção, despertando curiosidade sobre a
             cultura representada.&quot;
           </blockquote>
           <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-10">
             Carolina Ferreira — Atlas Ousia
           </p>
+          <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-10" />
           <Link
             href="/about"
-            className="font-body text-xs tracking-[0.25em] uppercase text-gold hover:text-cream transition-colors duration-200"
+            className="font-body text-xs tracking-[0.25em] uppercase text-gold hover:text-cream transition-colors duration-200 inline-block"
           >
             Sobre a Marca →
           </Link>
@@ -128,26 +184,46 @@ export default function HomePage() {
       </section>
 
       {/* ── Bottle Showcase ── */}
-      <section className="py-28 px-6 border-t border-rim/30 bg-card/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 animate-slide-up">
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-5">
-              As Essências
-            </p>
-            <h2 className="font-display text-5xl md:text-6xl font-light text-cream leading-tight">
-              Conheça Cada Frasco
-            </h2>
+      <section className="py-24 px-6 border-t border-rim/30 bg-gradient-to-b from-card/30 to-ink relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20 flex items-end justify-between">
+            <div className="animate-slide-up">
+              <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">
+                As Essências
+              </p>
+              <h2 className="font-display text-6xl md:text-7xl font-light text-cream leading-tight">
+                Conheça
+                <br />
+                Cada Frasco
+              </h2>
+            </div>
+            <div className="hidden md:block w-12 h-12 border border-gold/20 rounded-full flex items-center justify-center opacity-50">
+              <span className="font-display text-gold/50 text-xs">✦</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          {/* Asymmetrical grid layout */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-min">
             {collections.map((col, i) => (
-              <div key={col.slug} className="animate-slide-up" style={{ animationDelay: `${i * 100}ms` }}>
-                <BottleShowcase color={col.color} season={col.season} />
+              <div
+                key={col.slug}
+                className={`animate-slide-up ${i === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+                style={{ animationDelay: `${i * 75}ms` }}
+              >
+                <div
+                  className="h-full rounded-lg p-6 flex flex-col items-center justify-center border transition-all duration-500 hover:border-gold/40 group"
+                  style={{
+                    background: `linear-gradient(135deg, ${col.color}15 0%, ${col.color}05 100%)`,
+                    border: `1px solid ${col.color}25`,
+                  }}
+                >
+                  <BottleShowcase color={col.color} season={col.season} />
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 text-center animate-slide-up">
+          <div className="mt-20 text-center animate-slide-up">
             <Link
               href="/shop"
               className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300 inline-block"
@@ -159,50 +235,71 @@ export default function HomePage() {
       </section>
 
       {/* ── Concept ── */}
-      <section className="py-28 px-6 border-t border-rim/30">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-6">
-              Embalagem
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl font-light text-cream mb-6">
-              O Sistema Modular
+      <section className="py-24 px-6 border-t border-rim/30 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* Left: Text with accent */}
+          <div className="animate-slide-up">
+            <div className="mb-8">
+              <div className="h-1 w-12 bg-gold mb-6" />
+              <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-4">
+                Embalagem
+              </p>
+            </div>
+
+            <h2 className="font-display text-5xl md:text-6xl font-light text-cream mb-8 leading-tight">
+              O Sistema
+              <br />
+              <span className="relative inline-block">
+                Modular
+                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-gold via-gold to-transparent" />
+              </span>
             </h2>
-            <p className="font-body text-sm text-stone leading-relaxed mb-10">
+
+            <p className="font-body text-sm text-stone leading-relaxed mb-12">
               Através do estudo de planificações de poliedros, a caixa ao abrir-se revela uma
               estrutura de abas triangulares que simulam a silhueta de uma cordilheira de montanhas.
               As embalagens encaixam entre si, criando um puzzle volumétrico interativo.
             </p>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="border-l-2 border-gold/30 pl-5">
-                <p className="font-display text-lg text-cream mb-1">Maximalista</p>
-                <p className="font-body text-xs text-stone leading-relaxed">
-                  Grande impacto visual e decorativo
-                </p>
-              </div>
-              <div className="border-l-2 border-gold/30 pl-5">
-                <p className="font-display text-lg text-cream mb-1">Minimalista</p>
-                <p className="font-body text-xs text-stone leading-relaxed">
-                  Sobriedade para espaços reduzidos
-                </p>
-              </div>
+
+            {/* Feature list with icons */}
+            <div className="space-y-4">
+              {[
+                { title: 'Maximalista', desc: 'Grande impacto visual e decorativo' },
+                { title: 'Minimalista', desc: 'Sobriedade para espaços reduzidos' },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4 items-start group">
+                  <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center shrink-0 group-hover:bg-gold/40 transition-colors">
+                    <span className="font-display text-gold text-xs">✦</span>
+                  </div>
+                  <div>
+                    <p className="font-display text-lg font-light text-cream mb-1">{item.title}</p>
+                    <p className="font-body text-xs text-stone leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="flex items-center justify-center py-16">
-            <div className="relative flex flex-col items-center">
-              <div className="w-44 h-44 border border-rim rotate-45 flex items-center justify-center">
-                <div className="w-20 h-20 border border-gold/25 flex items-center justify-center">
-                  <div className="w-8 h-8 border border-gold/15 flex items-center justify-center">
-                    <span className="text-gold/30 font-display -rotate-45 text-xs select-none">
-                      ✦
-                    </span>
-                  </div>
+          {/* Right: Decorative visual */}
+          <div className="flex items-center justify-center py-16 animate-slide-up" style={{ animationDelay: '100ms' }}>
+            <div className="relative w-72 h-72">
+              {/* Rotating decorative frame */}
+              <div className="absolute inset-0 border-2 border-gold/20 rounded-lg rotate-12 group-hover:rotate-0 transition-transform duration-500" />
+              <div className="absolute inset-4 border border-gold/10 rounded-lg -rotate-12 group-hover:rotate-0 transition-transform duration-500" />
+
+              {/* Center glyph */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <span className="font-display text-8xl text-gold/20 block leading-none mb-4">✦</span>
+                  <p className="font-body text-xs tracking-[0.2em] uppercase text-stone/50">
+                    Puzzle Volumétrico
+                  </p>
                 </div>
               </div>
-              <p className="font-body text-xs text-stone/30 tracking-[0.3em] uppercase mt-8">
-                Conceito Modular
-              </p>
+
+              {/* Floating accents */}
+              <div className="absolute top-0 right-0 w-2 h-2 bg-gold/40 rounded-full animate-float" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-gold/30 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
             </div>
           </div>
         </div>

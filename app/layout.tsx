@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Lato } from 'next/font/google'
+import { Cormorant_Garamond, Lato, Geist } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ToastProvider } from '@/components/ToastProvider'
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt" className={`${cormorant.variable} ${lato.variable}`}>
+    <html lang="pt" className={cn(cormorant.variable, lato.variable, "font-sans", geist.variable)}>
       <body>
         <Navigation />
         <main>{children}</main>

@@ -127,8 +127,8 @@ export default function ShopPage() {
             <SeasonalLaunch
               month="Dezembro — Fevereiro"
               season="Inverno"
-              desc="Lançamento da coleção Portugal com Verde Floresta Profunda."
-              color="#0b2e22"
+              desc="Lançamento da coleção Portugal com Verde Floresta Radiante."
+              color="#2f7f5b"
               slug="winter"
             />
             <SeasonalLaunch

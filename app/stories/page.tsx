@@ -22,7 +22,7 @@ const stories = [
     excerpt: 'Explorando as florestas de Portugal e a inspiração por trás da coleção Inverno.',
     date: 'Fevereiro 2024',
     readTime: '4 min',
-    color: '#0b2e22',
+    color: '#2f7f5b',
     content: 'Portugal tem um patrimônio florestal único. As fragrâncias de lenha, pinheiro e musgo transportam-nos para os bosques centenários. Cada nota escolhida reflete um respeito profundo pela natureza portuguesa e pelo seu ecossistema delicado.',
   },
   {
@@ -67,12 +67,16 @@ export default function StoriesPage() {
   return (
     <div className="pt-16 pb-24">
       {/* Hero */}
-      <section className="py-36 px-6 border-b border-rim/30 bg-gradient-to-b from-card/50 to-ink">
-        <div className="max-w-6xl mx-auto animate-slide-up">
+      <section className="py-36 px-6 border-b border-rim/30 bg-gradient-to-b from-card/50 to-ink relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-5" style={{ background: '#c9a86c' }} />
+        
+        <div className="max-w-7xl mx-auto animate-slide-up relative z-10">
+          <div className="h-1 w-12 bg-gold mb-6" />
           <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Narrativas
           </p>
-          <h1 className="font-display text-7xl md:text-8xl font-light text-cream mb-6">
+          <h1 className="font-display text-7xl md:text-8xl font-light text-cream mb-6 text-balance">
             Histórias
           </h1>
           <p className="font-body text-sm text-stone leading-relaxed max-w-3xl">
@@ -82,15 +86,15 @@ export default function StoriesPage() {
       </section>
 
       {/* Featured Story */}
-      <section className="py-20 px-6 border-b border-rim/30">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-6 border-b border-rim/30 bg-gradient-to-br from-card/20 to-ink">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-up">
+            <div className="animate-slide-in-left">
               <div
-                className="h-1 mb-6 w-12"
+                className="h-1 mb-6 w-12 transition-all duration-300"
                 style={{ backgroundColor: stories[0].color }}
               />
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-4">
+              <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">
                 Mais Recente
               </p>
               <h2 className="font-display text-5xl font-light text-cream mb-6">
@@ -106,20 +110,26 @@ export default function StoriesPage() {
               </div>
             </div>
 
-            <div className="animate-slide-up" style={{ animationDelay: '100ms' }}>
+            <div className="animate-slide-in-right">
               <div
-                className="aspect-square rounded overflow-hidden border border-rim/30"
+                className="aspect-square rounded-lg overflow-hidden border border-rim/30 hover:border-rim/60 transition-all duration-300"
                 style={{
-                  background: `linear-gradient(135deg, ${stories[0].color}20 0%, ${stories[0].color}05 100%)`,
+                  background: `linear-gradient(135deg, ${stories[0].color}25 0%, ${stories[0].color}08 100%)`,
                 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex items-center justify-center relative group">
                   <span
-                    className="font-display text-[10rem] font-light opacity-20"
+                    className="font-display text-[10rem] font-light opacity-20 group-hover:opacity-40 transition-opacity duration-300"
                     style={{ color: stories[0].color }}
                   >
                     ✦
                   </span>
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                    style={{
+                      background: `radial-gradient(circle at 100% 100%, ${stories[0].color}30 0%, transparent 70%)`,
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -128,40 +138,50 @@ export default function StoriesPage() {
       </section>
 
       {/* Stories Grid */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12 pb-6 border-b border-rim/30">
-            <h3 className="font-display text-3xl font-light text-cream">Todas as Histórias</h3>
+      <section className="py-24 px-6 bg-gradient-to-b from-ink to-card/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 pb-8 border-b border-gold/20">
+            <div className="h-1 w-12 bg-gold mb-4" />
+            <h3 className="font-display text-5xl font-light text-cream">Todas as Histórias</h3>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {stories.slice(1).map((story, idx) => (
               <article
                 key={story.id}
-                className="group border border-rim/30 rounded hover:border-rim/60 transition-all duration-300 overflow-hidden animate-slide-up"
-                style={{ animationDelay: `${idx * 50}ms` }}
+                className="group border border-rim/30 rounded-lg hover:border-rim/60 transition-all duration-300 overflow-hidden animate-scale-in backdrop-blur-sm"
+                style={{ 
+                  animationDelay: `${idx * 50}ms`,
+                  background: `linear-gradient(135deg, ${story.color}08 0%, ${story.color}03 100%)`,
+                }}
               >
                 {/* Story card visual */}
                 <div
-                  className="h-40 relative overflow-hidden group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 relative overflow-hidden group-hover:scale-110 transition-transform duration-300"
                   style={{
-                    background: `linear-gradient(135deg, ${story.color}25 0%, ${story.color}08 100%)`,
+                    background: `linear-gradient(135deg, ${story.color}30 0%, ${story.color}10 100%)`,
                   }}
                 >
-                  <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-full h-full flex items-center justify-center relative">
                     <span
-                      className="font-display text-8xl font-light opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                      className="font-display text-8xl font-light opacity-25 group-hover:opacity-40 transition-opacity duration-300"
                       style={{ color: story.color }}
                     >
                       ✦
                     </span>
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-300"
+                      style={{
+                        background: `radial-gradient(circle at 50% 50%, ${story.color}40 0%, transparent 70%)`,
+                      }}
+                    />
                   </div>
                 </div>
 
                 {/* Story content */}
                 <div className="p-6">
                   <div
-                    className="h-0.5 mb-4 w-8"
+                    className="h-1 mb-4 w-8 transition-all duration-300 group-hover:w-12"
                     style={{ backgroundColor: story.color }}
                   />
 
@@ -180,7 +200,7 @@ export default function StoriesPage() {
                       <span>{story.readTime}</span>
                     </div>
                     <span
-                      className="text-gold group-hover:translate-x-1 transition-transform duration-200"
+                      className="group-hover:translate-x-2 transition-transform duration-200"
                       style={{ color: story.color }}
                     >
                       →

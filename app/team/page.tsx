@@ -223,7 +223,7 @@ export default function TeamPage() {
             Acreditamos que o design tem responsabilidade social. Cada decisão em Atlas Ousia é pensada considerando impacto ambiental, inclusão cultural, e experiência sensorial significativa.
           </p>
           <p className="font-body text-sm text-stone/80 italic">
-            "Essências do Mundo — Difusores de Ambiente Sazonais e Multiculturais"
+            &quot;Essências do Mundo — Difusores de Ambiente Sazonais e Multiculturais&quot;
           </p>
         </div>
       </section>

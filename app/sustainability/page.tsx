@@ -9,12 +9,16 @@ export default function SustainabilityPage() {
   return (
     <div className="pt-16 pb-24">
       {/* Hero */}
-      <section className="py-36 px-6 border-b border-rim/30 bg-gradient-to-b from-card/50 to-ink">
-        <div className="max-w-6xl mx-auto animate-slide-up">
+      <section className="py-36 px-6 border-b border-rim/30 bg-gradient-to-b from-card/50 to-ink relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-5" style={{ background: '#4db394' }} />
+        
+        <div className="max-w-7xl mx-auto animate-slide-up relative z-10">
+          <div className="h-1 w-12 bg-gold mb-6" />
           <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">
             Responsabilidade
           </p>
-          <h1 className="font-display text-7xl md:text-8xl font-light text-cream mb-6">
+          <h1 className="font-display text-7xl md:text-8xl font-light text-cream mb-6 text-balance">
             Sustentabilidade
           </h1>
           <p className="font-body text-sm text-stone leading-relaxed max-w-3xl">
@@ -24,28 +28,36 @@ export default function SustainabilityPage() {
       </section>
 
       {/* Core Principles */}
-      <section className="py-24 px-6 border-b border-rim/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+      <section className="py-24 px-6 border-b border-rim/30 bg-gradient-to-br from-card/20 to-ink">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <div className="h-1 w-12 bg-gold mb-4" />
+            <h2 className="font-display text-5xl font-light text-cream">Princípios Fundamentais</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
             {[
               {
                 title: 'Materiais Naturais',
                 desc: 'Utilizamos barro e cerâmica tradicionais — 100% naturais, biodegradáveis e sem processamento químico agressivo. Cada frasco é uma extensão da natureza.',
-                icon: '🌱',
+                color: '#4db394',
               },
               {
                 title: 'Fabrico Responsável',
                 desc: 'Parceria com artesãos que respeitam normas ambientais rigorosas. Reduzimos desperdício e priorizamos técnicas de produção de baixa pegada carbónica.',
-                icon: '♻️',
+                color: '#2f7f5b',
               },
               {
                 title: 'Fim de Vida',
                 desc: 'Frascos completamente reciclados como cerâmica ou reintegrados em compostagem. Encorajamos reutilização criativa como peças decorativas permanentes.',
-                icon: '🌍',
+                color: '#ebeca0',
               },
-            ].map((item) => (
-              <div key={item.title} className="animate-slide-up">
-                <div className="text-5xl mb-4">{item.icon}</div>
+            ].map((item, idx) => (
+              <div key={item.title} className="animate-scale-in" style={{ animationDelay: `${idx * 50}ms` }}>
+                <div 
+                  className="h-1 w-8 mb-4 transition-all duration-300"
+                  style={{ backgroundColor: item.color }}
+                />
                 <h3 className="font-display text-2xl font-light text-cream mb-3">{item.title}</h3>
                 <p className="font-body text-sm text-stone leading-relaxed">{item.desc}</p>
               </div>
@@ -56,8 +68,9 @@ export default function SustainabilityPage() {
 
       {/* Collections & Regional Impact */}
       <section className="py-24 px-6 border-b border-rim/30 bg-gradient-to-b from-card/30 to-ink">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-16">
+            <div className="h-1 w-12 bg-gold mb-4" />
             <h2 className="font-display text-5xl font-light text-cream mb-6">
               Coleções Globais, Impacto Local
             </h2>
@@ -66,11 +79,11 @@ export default function SustainabilityPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {[
               {
                 season: 'Inverno — Portugal',
-                color: '#0b2e22',
+                color: '#2f7f5b',
                 desc: 'Homenageando a floresta portuguesa. Elementos de lenha e musgo refletem o compromisso com a conservação das florestas nacionais.',
                 impact: 'Suporta iniciativas de reflorestação em Portugal.',
               },
@@ -92,13 +105,15 @@ export default function SustainabilityPage() {
                 desc: 'Celebrando a filosofia zen japonesa. Sakura, chá verde e bambu refletem harmonia com a natureza.',
                 impact: 'Contribui para projetos de proteção de florestas japonesas.',
               },
-            ].map((region) => (
+            ].map((region, idx) => (
               <div
                 key={region.season}
-                className="p-8 border border-rim/30 rounded hover:border-rim/60 transition-all duration-300 animate-slide-up"
+                className="p-8 border border-rim/30 rounded-lg hover:border-rim/60 transition-all duration-300 animate-scale-in backdrop-blur-sm"
                 style={{
-                  borderLeftColor: region.color,
                   borderLeftWidth: '4px',
+                  borderLeftColor: region.color,
+                  background: `linear-gradient(135deg, ${region.color}08 0%, ${region.color}03 100%)`,
+                  animationDelay: `${idx * 50}ms`,
                 }}
               >
                 <h3 className="font-display text-xl font-light mb-3" style={{ color: region.color }}>
@@ -118,13 +133,16 @@ export default function SustainabilityPage() {
       </section>
 
       {/* Materials Deep Dive */}
-      <section className="py-24 px-6 border-b border-rim/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl font-light text-cream mb-16">
-            Escolhas de Materiais
-          </h2>
+      <section className="py-24 px-6 border-b border-rim/30 bg-gradient-to-br from-card/20 to-ink">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <div className="h-1 w-12 bg-gold mb-4" />
+            <h2 className="font-display text-5xl font-light text-cream mb-6">
+              Escolhas de Materiais
+            </h2>
+          </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {[
               {
                 title: 'Barro e Cerâmica',

@@ -15,7 +15,7 @@ Premium fragrance diffuser brand website. PAP (Prova de Aptidão Profissional) b
 | `cream`  | `#e8e0d4` | Primary text           |
 | `stone`  | `#7a9080` | Muted / secondary text |
 | `gold`   | `#c9a86c` | Accent, CTAs           |
-| `winter` | `#0b2e22` | Portugal               |
+| `winter` | `#2f7f5b` | Portugal               |
 | `summer` | `#4db394` | Brazil                 |
 | `autumn` | `#f9aeb7` | Morocco                |
 | `spring` | `#ebeca0` | Japan                  |
@@ -58,7 +58,7 @@ lib/
 ## Collections (lib/data.ts)
 | slug     | season    | country  | color     |
 |----------|-----------|----------|-----------|
-| winter   | Inverno   | Portugal | `#0b2e22` |
+| winter   | Inverno   | Portugal | `#2f7f5b` |
 | summer   | Verão     | Brasil   | `#4db394` |
 | autumn   | Outono    | Marrocos | `#f9aeb7` |
 | spring   | Primavera | Japão    | `#ebeca0` |
@@ -67,7 +67,7 @@ lib/
 - **Next.js 15**: `params` is a `Promise` — always `await params` in page components
 - Server components by default; `'use client'` only for hooks/interactivity
 - Fluid type: `style={{ fontSize: 'clamp(...)' }}` for hero headings
-- Winter accent color override: `col.color === '#0b2e22' ? '#4db394' : col.color`
+- Winter accent color override: `col.slug === 'winter' ? '#4db394' : col.color`
 - All text is Portuguese (Portugal)
 - `✦` glyph used as brand decorative mark (select-none)
 

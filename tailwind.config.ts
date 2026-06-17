@@ -19,7 +19,7 @@ const config: Config = {
         cream: '#e8e0d4',
         stone: '#7a9080',
         gold: '#c9a86c',
-        winter: '#0b2e22',
+        winter: '#2f7f5b',
         summer: '#4db394',
         autumn: '#f9aeb7',
         spring: '#ebeca0',

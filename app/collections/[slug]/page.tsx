@@ -35,8 +35,8 @@ export default async function CollectionPage({
   const prev = collections[(idx - 1 + collections.length) % collections.length]
   const next = collections[(idx + 1) % collections.length]
 
-  // For the season accent color: winter is very dark, use a lighter variant for text
-  const accentColor = col.color === '#0b2e22' ? '#4db394' : col.color
+  // For the season accent color: winter uses a brighter green variant for better contrast
+  const accentColor = col.slug === 'winter' ? '#4db394' : col.color
 
   return (
     <div className="pt-16">
@@ -44,11 +44,11 @@ export default async function CollectionPage({
       <section
         className="relative py-36 px-6 overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${col.color}30 0%, ${col.color}10 50%, #060e09 100%)`,
+          background: `linear-gradient(135deg, ${col.color}50 0%, ${col.color}25 50%, #060e09 100%)`,
           borderTop: `3px solid ${col.color}`,
         }}
       >
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <p
             className="font-body text-xs tracking-[0.3em] uppercase mb-4"
             style={{ color: accentColor }}
@@ -75,16 +75,16 @@ export default async function CollectionPage({
 
         {/* Accent glow */}
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
+          className="absolute inset-0 opacity-30 pointer-events-none"
           style={{
-            background: `radial-gradient(circle at 100% 0%, ${col.color}20 0%, transparent 70%)`,
+            background: `radial-gradient(circle at 100% 0%, ${col.color}30 0%, transparent 70%)`,
           }}
         />
       </section>
 
       {/* Content */}
       <section className="py-24 px-6 border-b border-rim/30 bg-gradient-to-b from-card/50 to-ink">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="animate-slide-up">
             <div
               className="h-1 mb-6 w-12"
@@ -133,10 +133,10 @@ export default async function CollectionPage({
       <section
         className="py-32 px-6 border-b border-rim/30 relative overflow-hidden"
         style={{
-          background: `linear-gradient(180deg, ${col.color}20 0%, ${col.color}08 50%, #060e09 100%)`,
+          background: `linear-gradient(180deg, ${col.color}30 0%, ${col.color}12 50%, #060e09 100%)`,
         }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div
             className="mb-12 pb-8 border-b"
             style={{ borderColor: `${col.color}30` }}
@@ -193,7 +193,7 @@ export default async function CollectionPage({
 
       {/* Collection navigation */}
       <section className="border-t border-rim/30 bg-gradient-to-b from-card/30 to-card/60">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 divide-x divide-rim/30">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 divide-x divide-rim/30">
           <Link
             href={`/collections/${prev.slug}`}
             className="group p-10 hover:bg-card/40 transition-all duration-300"

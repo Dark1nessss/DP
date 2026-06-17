@@ -13,7 +13,7 @@ export default function CollectionsPage() {
     <div className="pt-16">
       {/* Header */}
       <section className="py-24 px-6 border-b border-rim/30">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <p className="font-body text-xs tracking-[0.3em] uppercase text-stone mb-6">Coleções</p>
           <h1 className="font-display text-6xl md:text-7xl font-light text-cream mb-8 leading-tight">
             O Mapa Olfativo

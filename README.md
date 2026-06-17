@@ -8,7 +8,7 @@ Atlas Ousia presents a curated collection of seasonal diffusers, each representi
 
 | Season    | Country  | Colour    | Scent Profile              |
 |-----------|----------|-----------|----------------------------|
-| Inverno   | Portugal | #0b2e22   | Lenha, Pinheiro, Musgo     |
+| Inverno   | Portugal | #2f7f5b   | Lenha, Pinheiro, Musgo     |
 | Verão     | Brasil   | #4db394   | Cítrico, Coco, Brisa       |
 | Outono    | Marrocos | #f9aeb7   | Âmbar, Especiarias, Oud    |
 | Primavera | Japão    | #ebeca0   | Sakura, Chá Verde, Bambu   |
@@ -121,7 +121,7 @@ npm run lint
 | cream    | #e8e0d4   | Primary text      |
 | stone    | #7a9080   | Secondary text    |
 | gold     | #c9a86c   | Accents & CTAs    |
-| winter   | #0b2e22   | Portugal          |
+| winter   | #2f7f5b   | Portugal          |
 | summer   | #4db394   | Brazil            |
 | autumn   | #f9aeb7   | Morocco           |
 | spring   | #ebeca0   | Japan             |

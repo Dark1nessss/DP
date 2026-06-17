@@ -11,7 +11,7 @@ Slogan: *"Essências do Mundo — Difusores de Ambiente Sazonais e Multiculturai
 ## Four Collections
 | Season    | Country  | Colour    | Scent Direction             |
 |-----------|----------|-----------|-----------------------------|
-| Inverno   | Portugal | `#0b2e22` | Lenha, Pinheiro, Musgo      |
+| Inverno   | Portugal | `#2f7f5b` | Lenha, Pinheiro, Musgo      |
 | Verão     | Brasil   | `#4db394` | Cítrico, Coco, Brisa Marina |
 | Outono    | Marrocos | `#f9aeb7` | Âmbar, Especiarias, Oud     |
 | Primavera | Japão    | `#ebeca0` | Sakura, Chá Verde, Bambu    |
