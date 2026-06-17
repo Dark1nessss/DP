@@ -1,23 +1,45 @@
-import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import "./globals.css";
-import Navigation from "./components/Navigation";
+import type { Metadata } from 'next'
+import { Cormorant_Garamond, Lato } from 'next/font/google'
+import './globals.css'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-cormorant',
+  display: 'swap',
+})
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-lato',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: "Aura & Art | Seasonal Dehumidifiers",
-  description: "Handcrafted dehumidifiers housed in beautiful, culturally inspired art.",
-};
+  title: {
+    default: 'Atlas Ousia — Essências do Mundo',
+    template: '%s | Atlas Ousia',
+  },
+  description:
+    'Difusores de Ambiente Sazonais e Multiculturais. Uma viagem olfativa pelo mundo — Portugal, Brasil, Marrocos e Japão.',
+  openGraph: {
+    siteName: 'Atlas Ousia',
+    locale: 'pt_PT',
+    type: 'website',
+  },
+}
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} bg-background text-secondary antialiased`}>
+    <html lang="pt" className={`${cormorant.variable} ${lato.variable}`}>
+      <body>
         <Navigation />
-        {children}
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
-  );
+  )
 }

@@ -1,25 +1,32 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{ts,tsx,js,jsx}',
+    './components/**/*.{ts,tsx,js,jsx}',
+    './lib/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
-      colors: {
-        background: "#0b2e22", // Deep elegant green
-        primary: "#4db394",    // Mint/Jade green
-        secondary: "#e6eca0",  // Soft cream/gold
-        accent: "#f9aeb7",     // Sakura pink (Perfect for the Spring Japan theme)
-      },
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'serif'], // Good for elegant themes
-      }
+        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        body: ['var(--font-lato)', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        ink: '#060e09',
+        card: '#0c1a12',
+        rim: '#1a3324',
+        cream: '#e8e0d4',
+        stone: '#7a9080',
+        gold: '#c9a86c',
+        winter: '#0b2e22',
+        summer: '#4db394',
+        autumn: '#f9aeb7',
+        spring: '#ebeca0',
+      },
     },
   },
   plugins: [],
-};
-export default config;
+}
+
+export default config
