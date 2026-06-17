@@ -1,4 +1,6 @@
-import BuyModal from './BuyModal'
+'use client'
+
+import { toast } from 'sonner'
 
 export function BottleShowcase({
   color,
@@ -7,6 +9,15 @@ export function BottleShowcase({
   color: string
   season: string
 }) {
+  const handleBuyClick = () => {
+    toast.error('You wanna buy something that doesn\'t exist yet? Be my guest. 🎨', {
+      description: 'Atlas Ousia is a conceptual design project, not available for purchase.',
+      duration: 4000,
+      style: {
+        borderColor: color,
+      },
+    })
+  }
 
   return (
     <div className="relative h-80 flex flex-col items-center justify-center">
@@ -69,7 +80,22 @@ export function BottleShowcase({
 
       {/* Buy button - positioned below */}
       <div className="mt-8">
-        <BuyModal />
+        <button
+          onClick={handleBuyClick}
+          className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border transition-all duration-300 animate-glow-pulse"
+          style={{
+            borderColor: `${color}60`,
+            color: color,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = color + '20'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent'
+          }}
+        >
+          Adquirir Agora
+        </button>
       </div>
     </div>
   )

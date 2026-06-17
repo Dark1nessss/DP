@@ -22,7 +22,7 @@ export function ShopCard({
   slug,
 }: ShopCardProps) {
   const handleBuyClick = () => {
-    toast.error('You wanna buy something that doesn't exist yet? Be my guest. 🎨', {
+    toast.error('You wanna buy something that doesn\'t exist yet? Be my guest. 🎨', {
       description: 'Atlas Ousia is a conceptual design project, not available for purchase.',
       duration: 4000,
       style: {
