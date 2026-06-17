@@ -6,7 +6,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
@@ -41,13 +40,11 @@ function Field({
 }
 
 function SelectField({
-  name,
   label,
   options,
   value,
   onValueChange,
 }: {
-  name: string
   label: string
   options: { value: string; label: string }[]
   value?: string
@@ -141,7 +138,6 @@ export default function ContactForm() {
       </div>
 
       <SelectField
-        name="subject"
         label="Assunto"
         value={subject}
         onValueChange={setSubject}
