@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Lato } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { ToastProvider } from '@/components/ToastProvider'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <ToastProvider />
       </body>
     </html>
   )

@@ -107,3 +107,24 @@
     @apply h-0.5 transition-all duration-300;
   }
 }
+
+/* Sonner Toast Styling */
+[data-sonner-toast] {
+  @apply bg-card border border-rim/50 text-cream font-body text-sm;
+}
+
+[data-sonner-toast][data-type='error'] {
+  @apply border-autumn;
+}
+
+[data-sonner-toast][data-type='success'] {
+  @apply border-summer;
+}
+
+[data-sonner-toast][data-type='loading'] {
+  @apply border-gold;
+}
+
+[data-sonner-toast] [data-close-button] {
+  @apply text-stone hover:text-cream transition-colors;
+}

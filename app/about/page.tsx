@@ -148,12 +148,26 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-16 px-6 text-center">
-        <Link
-          href="/collections"
-          className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300 inline-block"
-        >
-          Explorar Coleções →
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link
+            href="/collections"
+            className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300"
+          >
+            Explorar Coleções →
+          </Link>
+          <Link
+            href="/shop"
+            className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300"
+          >
+            Visitar Shop
+          </Link>
+          <Link
+            href="/contact"
+            className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-stone/40 text-stone hover:border-stone hover:text-cream transition-all duration-300"
+          >
+            Entre em Contacto
+          </Link>
+        </div>
       </section>
     </div>
   )

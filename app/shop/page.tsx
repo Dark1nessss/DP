@@ -1,5 +1,7 @@
 import { collections } from '@/lib/data'
 import { BottleShowcase } from '@/components/BottleShowcase'
+import { ShopCard } from '@/components/ShopCard'
+import { SeasonalLaunch } from '@/components/SeasonalLaunch'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -62,48 +64,16 @@ export default function ShopPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rim/30">
             {collections.map((col) => (
-              <div key={col.slug} className="bg-card p-8 hover:bg-rim/20 transition-colors duration-300">
-                <div
-                  className="h-1 mb-6"
-                  style={{ backgroundColor: col.color, width: '40px' }}
-                />
-
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <p className="font-body text-xs tracking-[0.2em] uppercase text-stone/60 mb-2">
-                      {col.season}
-                    </p>
-                    <h3 className="font-display text-3xl font-light text-cream">{col.country}</h3>
-                  </div>
-                  <span
-                    className="text-3xl font-light opacity-10 select-none"
-                    style={{ color: col.color }}
-                  >
-                    ✦
-                  </span>
-                </div>
-
-                <p className="font-display text-base italic text-stone mb-6">{col.subtitle}</p>
-
-                <p className="font-body text-sm text-stone/70 leading-relaxed mb-6">
-                  {col.description.substring(0, 200)}...
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {col.notes.map((note) => (
-                    <span
-                      key={note}
-                      className="font-body text-xs px-3 py-1 border"
-                      style={{
-                        borderColor: `${col.color}40`,
-                        color: col.color,
-                      }}
-                    >
-                      {note}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <ShopCard
+                key={col.slug}
+                season={col.season}
+                color={col.color}
+                country={col.country}
+                subtitle={col.subtitle}
+                description={col.description}
+                notes={col.notes}
+                slug={col.slug}
+              />
             ))}
           </div>
         </div>
@@ -154,46 +124,34 @@ export default function ShopPage() {
           </h2>
 
           <div className="space-y-6">
-            {[
-              {
-                month: 'Dezembro — Fevereiro',
-                season: 'Inverno',
-                desc: 'Lançamento da coleção Portugal com Verde Floresta Profunda.',
-              },
-              {
-                month: 'Março — Maio',
-                season: 'Primavera',
-                desc: 'Edição limitada Japão com Amarelo Prímula e inspiração Sakura.',
-              },
-              {
-                month: 'Junho — Agosto',
-                season: 'Verão',
-                desc: 'Vibração tropical Brasil com Verde Menta e frescura de Ciano.',
-              },
-              {
-                month: 'Setembro — Novembro',
-                season: 'Outono',
-                desc: 'Calor do Âmbar — Marrocos com Rosa Quartzo e especiarias.',
-              },
-            ].map(({ month, season, desc }) => (
-              <div
-                key={season}
-                className="flex flex-col md:flex-row md:items-center justify-between p-8 border-b border-rim/30 hover:bg-card transition-colors duration-300 group"
-              >
-                <div className="flex-1 mb-4 md:mb-0">
-                  <p className="font-body text-xs tracking-[0.2em] uppercase text-stone/50 mb-2">
-                    {month}
-                  </p>
-                  <p className="font-display text-2xl font-light text-cream group-hover:text-gold transition-colors duration-200">
-                    {season}
-                  </p>
-                  <p className="font-body text-sm text-stone mt-2">{desc}</p>
-                </div>
-                <span className="text-stone group-hover:text-gold transition-colors duration-200 text-lg shrink-0">
-                  →
-                </span>
-              </div>
-            ))}
+            <SeasonalLaunch
+              month="Dezembro — Fevereiro"
+              season="Inverno"
+              desc="Lançamento da coleção Portugal com Verde Floresta Profunda."
+              color="#0b2e22"
+              slug="winter"
+            />
+            <SeasonalLaunch
+              month="Março — Maio"
+              season="Primavera"
+              desc="Edição limitada Japão com Amarelo Prímula e inspiração Sakura."
+              color="#ebeca0"
+              slug="spring"
+            />
+            <SeasonalLaunch
+              month="Junho — Agosto"
+              season="Verão"
+              desc="Vibração tropical Brasil com Verde Menta e frescura de Ciano."
+              color="#4db394"
+              slug="summer"
+            />
+            <SeasonalLaunch
+              month="Setembro — Novembro"
+              season="Outono"
+              desc="Calor do Âmbar — Marrocos com Rosa Quartzo e especiarias."
+              color="#f9aeb7"
+              slug="autumn"
+            />
           </div>
         </div>
       </section>
