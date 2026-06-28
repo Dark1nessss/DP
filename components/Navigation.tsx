@@ -24,32 +24,25 @@ function OrnateLink({
   href,
   label,
   active,
-  align = 'center',
 }: {
   href: string
   label: string
   active: boolean
-  align?: 'left' | 'right' | 'center'
 }) {
   return (
     <Link
       href={href}
-      className={`group relative font-body text-xs tracking-imperial uppercase transition-colors duration-300 py-2 ${
-        active ? 'text-gold' : 'text-stone hover:text-cream'
+      className={`group relative font-body lg:text-lg sm:text-sm tracking-imperial uppercase transition-colors duration-300 py-2 ${
+        active ? 'text-gold font-medium' : 'text-stone hover:text-cream'
       }`}
     >
       <span className="relative z-10">{label}</span>
       {/* Expanding double-line ornament */}
       <span
-        className={`pointer-events-none absolute -bottom-0.5 h-px bg-cream transition-all duration-300 ${
-          align === 'right' ? 'right-1/2' : 'left-1/2'
-        } w-0 group-hover:w-full group-hover:left-0 group-hover:right-0 ${active ? 'w-full left-0 right-0 bg-gold' : ''}`}
-      />
-      <span
-        className={`pointer-events-none absolute -bottom-[3px] h-px bg-gold/50 transition-all duration-500 delay-75 left-1/2 right-1/2 w-0 group-hover:w-full group-hover:left-0 group-hover:right-0`}
+        className={`pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-px bg-gold transition-all duration-300 w-0 group-hover:w-full ${active ? 'w-full bg-gold' : ''}`}
       />
       {/* Diamond tick on hover */}
-      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-3 text-[7px] text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-7 text-xl text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         ✦
       </span>
     </Link>
@@ -70,7 +63,6 @@ export default function Navigation() {
               key={href}
               href={href}
               label={label}
-              align="left"
               active={pathname.startsWith(href)}
             />
           ))}
@@ -80,16 +72,24 @@ export default function Navigation() {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="flex items-center justify-center px-4 md:px-8 group"
+          className="flex group"
           aria-label="Atlas Ousia — Início"
         >
           <Image
-            src="/images/logo-atlas-ousia.png"
+            src="/images/logo-atlas-ousia-vertical.png"
             alt="Atlas Ousia"
             width={150}
-            height={104}
+            height={110}
             priority
-            className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105 md:hidden px-4 md:px-8"
+          />
+          <Image
+            src="/images/logo-atlas-ousia.png"
+            alt="Atlas Ousia"
+            width={120}
+            height={84}
+            priority
+            className="hidden h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105 md:block"
           />
         </Link>
 
@@ -100,7 +100,6 @@ export default function Navigation() {
               key={href}
               href={href}
               label={label}
-              align="right"
               active={pathname.startsWith(href)}
             />
           ))}

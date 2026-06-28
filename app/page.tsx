@@ -53,7 +53,7 @@ export default function HomePage() {
           </div>
 
           <h1
-            className="font-display font-light text-cream tracking-imperial leading-none mb-8 animate-reveal-rise"
+            className="font-display font-light text-cream leading-none mb-8 animate-reveal-rise"
             style={{ fontSize: 'clamp(3.5rem, 11vw, 8.5rem)', animationDelay: '0.2s' }}
           >
             Atlas Ousia
