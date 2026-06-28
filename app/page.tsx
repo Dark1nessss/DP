@@ -249,7 +249,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="font-subtitle italic text-xl text-stone max-w-sm md:text-right">
-              Joias olfativas moldadas para celebrar quatro culturas, quatro estações.
+              Jóias olfativas moldadas para celebrar quatro culturas, quatro estações.
             </p>
           </div>
 
