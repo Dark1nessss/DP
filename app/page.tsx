@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { collections } from '@/lib/data'
 import { BottleShowcase } from '@/components/BottleShowcase'
 import type { Metadata } from 'next'
@@ -13,14 +14,19 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section
-        className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 45%, #102818 0%, #060e09 65%)',
-        }}
-      >
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden bg-ink">
         <div className="relative z-10 flex flex-col items-center">
-          <span className="text-gold font-display text-3xl mb-10 opacity-50 select-none">✦</span>
+          {/* Official logo */}
+          <div className="mb-8 flex items-center justify-center">
+            <Image
+              src="/images/logo-atlas-ousia.png"
+              alt="Atlas Ousia"
+              width={260}
+              height={180}
+              priority
+              className="w-auto h-32 md:h-40 object-contain select-none"
+            />
+          </div>
 
           <h1
             className="font-display font-light text-cream tracking-[0.08em] mb-6 leading-none"
@@ -29,26 +35,26 @@ export default function HomePage() {
             Atlas Ousia
           </h1>
 
-          <div className="w-20 h-px bg-gold/40 mb-6" />
+          <div className="w-20 h-px bg-gold/60 mb-6" />
 
-          <p className="font-display text-2xl md:text-3xl font-light text-stone tracking-[0.04em] mb-3">
+          <p className="font-subtitle text-2xl md:text-3xl text-stone tracking-[0.04em] mb-3">
             Essências do Mundo
           </p>
-          <p className="font-body text-xs tracking-[0.25em] uppercase text-stone/50 mb-14">
+          <p className="font-body text-xs tracking-[0.25em] uppercase text-stone/70 mb-14">
             Difusores de Ambiente Sazonais e Multiculturais
           </p>
 
           <Link
             href="/collections"
-            className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300"
+            className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-cream/80 bg-cream text-ink hover:bg-gold hover:border-gold hover:text-cream transition-all duration-300"
           >
             Explorar Coleções
           </Link>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone/25">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone/40">
           <span className="font-body text-xs tracking-[0.3em] uppercase">Scroll</span>
-          <div className="w-px h-10 bg-stone/20" />
+          <div className="w-px h-10 bg-stone/30" />
         </div>
       </section>
 
@@ -81,20 +87,20 @@ export default function HomePage() {
               <Link
                 key={col.slug}
                 href={`/collections/${col.slug}`}
-                className={`group relative overflow-hidden rounded-lg transition-all duration-500 hover:shadow-2xl animate-slide-up ${
+                className={`group relative overflow-hidden rounded-lg transition-all duration-500 hover:shadow-xl animate-slide-up ${
                   idx === 0 ? 'md:col-span-2 md:row-span-2' : 'md:row-span-1'
                 }`}
                 style={{
-                  background: `linear-gradient(135deg, ${col.color}25 0%, ${col.color}08 100%)`,
-                  border: `1px solid ${col.color}20`,
+                  background: `linear-gradient(135deg, ${col.color}14 0%, ${col.color}06 100%)`,
+                  border: `1px solid ${col.color}55`,
                   animationDelay: `${idx * 100}ms`,
                 }}
               >
                 {/* Animated background accent */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
                   style={{
-                    background: `radial-gradient(circle at 100% 0%, ${col.color}30 0%, transparent 70%)`,
+                    background: `radial-gradient(circle at 100% 0%, ${col.color}22 0%, transparent 70%)`,
                   }}
                 />
 
@@ -121,7 +127,7 @@ export default function HomePage() {
                       </h3>
                     </div>
 
-                    <p className="font-display text-lg italic text-stone/70 mb-6">{col.subtitle}</p>
+                    <p className="font-subtitle text-lg italic text-stone mb-6">{col.subtitle}</p>
                   </div>
 
                   {/* Bottom section */}
@@ -211,10 +217,10 @@ export default function HomePage() {
                 style={{ animationDelay: `${i * 75}ms` }}
               >
                 <div
-                  className="h-full rounded-lg p-6 flex flex-col items-center justify-center border transition-all duration-500 hover:border-gold/40 group"
+                  className="h-full rounded-lg p-6 flex flex-col items-center justify-center border transition-all duration-500 hover:border-gold group"
                   style={{
-                    background: `linear-gradient(135deg, ${col.color}15 0%, ${col.color}05 100%)`,
-                    border: `1px solid ${col.color}25`,
+                    background: `linear-gradient(135deg, ${col.color}12 0%, ${col.color}04 100%)`,
+                    border: `1px solid ${col.color}50`,
                   }}
                 >
                   <BottleShowcase color={col.color} season={col.season} />
@@ -226,7 +232,7 @@ export default function HomePage() {
           <div className="mt-20 text-center animate-slide-up">
             <Link
               href="/shop"
-              className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-all duration-300 inline-block"
+              className="font-body text-xs tracking-[0.25em] uppercase px-10 py-4 border border-cream/80 bg-cream text-ink hover:bg-gold hover:border-gold hover:text-cream transition-all duration-300 inline-block"
             >
               Ver Shop Completo →
             </Link>

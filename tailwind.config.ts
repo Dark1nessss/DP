@@ -9,20 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
-        body: ['var(--font-lato)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-regalia)', 'Georgia', 'serif'],
+        body: ['var(--font-candara)', 'system-ui', 'sans-serif'],
+        subtitle: ['var(--font-jedira)', 'Georgia', 'serif'],
       },
       colors: {
-        ink: '#060e09',
-        card: '#0c1a12',
-        rim: '#1a3324',
-        cream: '#e8e0d4',
-        stone: '#7a9080',
-        gold: '#c9a86c',
-        winter: '#2f7f5b',
-        summer: '#4db394',
-        autumn: '#f9aeb7',
-        spring: '#ebeca0',
+        // Light theme — inverted contrast
+        ink: '#FFFFFF', // main background (pure white)
+        card: '#F9FBF9', // secondary surfaces
+        rim: '#E2E8F0', // borders / dividers
+        cream: '#1F3E37', // primary text (deep petrol green)
+        stone: '#2D544B', // secondary text
+        gold: '#5EBF9E', // accents / highlights (mint green)
+        winter: '#1F3E37',
+        summer: '#5EBF9E',
+        autumn: '#F3A3B7',
+        spring: '#D8E090',
       },
     },
   },
