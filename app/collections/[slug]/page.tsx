@@ -39,7 +39,7 @@ export default async function CollectionPage({
   const accentColor = col.slug === 'winter' ? '#4db394' : col.color
 
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Season hero - with rich background gradient */}
       <section
         className="relative py-36 px-6 overflow-hidden"
@@ -133,7 +133,7 @@ export default async function CollectionPage({
       <section
         className="py-32 px-6 border-b border-rim/30 relative overflow-hidden"
         style={{
-          background: `linear-gradient(180deg, ${col.color}30 0%, ${col.color}12 50%, #060e09 100%)`,
+          background: `linear-gradient(180deg, ${col.color}30 0%, ${col.color}12 50%, #F9FBF9 100%)`,
         }}
       >
         <div className="max-w-7xl mx-auto">
