@@ -350,6 +350,191 @@
   .line-accent {
     @apply h-0.5 transition-all duration-300;
   }
+
+  /* ── Maximalist ornamental utilities ── */
+
+  /* Fine cartographic grid watermark */
+  .bg-cartography {
+    background-image: var(--tw-gradient-cartography),
+      linear-gradient(to right, rgba(31, 62, 55, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 62, 55, 0.05) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  /* Polyhedral / mountain-range diagonal hatch */
+  .bg-polyhedron {
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(31, 62, 55, 0.05) 0px,
+        rgba(31, 62, 55, 0.05) 1px,
+        transparent 1px,
+        transparent 14px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(31, 62, 55, 0.05) 0px,
+        rgba(31, 62, 55, 0.05) 1px,
+        transparent 1px,
+        transparent 14px
+      );
+  }
+
+  /* Concentric topographic rings */
+  .bg-topo {
+    background-image: repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(31, 62, 55, 0.06) 0px,
+      rgba(31, 62, 55, 0.06) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  }
+
+  /* Textured classic double border for the navbar / dividers */
+  .border-classic {
+    border-image: repeating-linear-gradient(
+        90deg,
+        #1f3e37 0px,
+        #1f3e37 8px,
+        transparent 8px,
+        transparent 14px
+      )
+      1;
+  }
+
+  /* Ornamental double-line frame */
+  .frame-double {
+    position: relative;
+    border: 1px solid rgba(31, 62, 55, 0.55);
+    box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5px rgba(31, 62, 55, 0.3);
+  }
+
+  /* Decorative corner brackets */
+  .corner-ornaments::before,
+  .corner-ornaments::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: #1f3e37;
+    border-style: solid;
+    border-width: 0;
+    pointer-events: none;
+  }
+  .corner-ornaments::before {
+    top: 8px;
+    left: 8px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+  }
+  .corner-ornaments::after {
+    bottom: 8px;
+    right: 8px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+  }
+
+  /* Diamond glyph divider */
+  .rule-ornate {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(31, 62, 55, 0.5),
+      transparent
+    );
+  }
+  .rule-ornate::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #5ebf9e;
+    font-size: 0.9rem;
+    background: #ffffff;
+    padding: 0 0.6rem;
+  }
+
+  /* Animated light glint overlay (for jewels / cards) */
+  .glint-overlay {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .glint-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.55),
+      transparent
+    );
+    animation: glint 3.5s ease-in-out infinite;
+  }
+
+  /* Staggered reveal helpers */
+  .reveal-stagger > * {
+    opacity: 0;
+    animation: reveal-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+@keyframes glint {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(320%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(45deg);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 3s ease-in-out infinite;
 }
 
 /* Sonner Toast Styling */

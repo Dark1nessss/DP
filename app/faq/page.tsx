@@ -113,7 +113,7 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="pt-16 pb-24">
+    <div className="pt-28 pb-24">
       {/* Hero */}
       <section className="py-36 px-6 border-b border-rim/30 relative overflow-hidden bg-gradient-to-br from-card/40 to-ink">
         {/* Decorative background elements */}

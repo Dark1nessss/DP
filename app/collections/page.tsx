@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function CollectionsPage() {
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Header */}
       <section className="py-24 px-6 border-b border-rim/30">
         <div className="max-w-7xl mx-auto">

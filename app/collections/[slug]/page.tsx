@@ -39,7 +39,7 @@ export default async function CollectionPage({
   const accentColor = col.slug === 'winter' ? '#4db394' : col.color
 
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Season hero - with rich background gradient */}
       <section
         className="relative py-36 px-6 overflow-hidden"

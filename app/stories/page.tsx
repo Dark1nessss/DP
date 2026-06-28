@@ -65,7 +65,7 @@ const stories = [
 
 export default function StoriesPage() {
   return (
-    <div className="pt-16 pb-24">
+    <div className="pt-28 pb-24">
       {/* Hero */}
       <section className="py-36 px-6 border-b border-rim/30 bg-gradient-to-b from-card/50 to-ink relative overflow-hidden">
         {/* Decorative elements */}
